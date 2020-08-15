@@ -145,3 +145,55 @@ a.custom-card:hover {
   text-align: center;
   font-family: 'Raleway', serif;
 }
+
+/* ESTILOS DE LOGIN*/
+
+.campos {
+  border: #1e57d3 1px  solid;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px ;
+  font-style:oblique ;
+  padding: 10px;
+  background-color : #24303c;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(243, 243, 243, 0.2);
+  }
+
+
+#cuadro{
+  width: 350px;
+  padding: 40px;
+  margin: auto;
+  color:white;
+  font-size: 16px;
+  border-radius:4px ;
+  box-shadow: 0px 10px 30px #000;
+
+}
+.flex{
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(243, 243, 243, 0.2);
+}
+  .boton{
+  width: 100%;
+  color: silver;
+  background: #1f53c5;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;  
+  margin: 16px 0;     
+  
+}
+
+.pError{
+ 
+  background-color: #FF4766 ;
+  border-radius: 4px;
+  padding: 3px;
+}
