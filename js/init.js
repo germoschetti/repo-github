@@ -45,3 +45,17 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+     
+  if(sessionStorage.getItem("Usuario")){
+    return true
+}else{
+    window.location.href = 'login.html'
+  }
+});
+var salir = document.getElementsByClassName("salir")[0]
+salir.addEventListener('click', () => {
+  sessionStorage.clear();   
+  window.history.back(10); 
+});   
