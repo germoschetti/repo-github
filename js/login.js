@@ -56,7 +56,8 @@
         if(sessionStorage.getItem("Usuario")){
           content1 +=`
           <img src ="img/usuario2.gif" width = 19px>
-             ${sessionStorage.getItem("Usuario")} 
+             ${sessionStorage.getItem("Usuario")}
+             ${sessionStorage.getItem("Usergoogle")} 
           
              `
   document.getElementsByClassName("usuario")[0].innerHTML = content1
@@ -70,7 +71,7 @@
        function onSignIn(googleUser) {
          // Useful data for your client-side scripts:
          var profile = googleUser.getBasicProfile();
-         sessionStorage.setItem("Usergoogle", profile)
+         sessionStorage.setItem("Usergoogle", profile.getName())
          console.log("ID: " + profile.getId()); // Don't send this directly to your server!
          console.log('Full Name: ' + profile.getName());
          console.log('Given Name: ' + profile.getGivenName());
