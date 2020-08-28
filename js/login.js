@@ -53,7 +53,7 @@
         //funcion que verifica que el usuario este logueado
         document.addEventListener('DOMContentLoaded', () => {
          content1 = ""
-        if(sessionStorage.getItem("Usuario")){
+        if(sessionStorage.getItem("Usuario") || sessionStorage.getItem("Usergoogle") ){
           content1 +=`
           <img src ="img/usuario2.gif" width = 19px>
              ${sessionStorage.getItem("Usuario")}

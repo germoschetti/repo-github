@@ -56,11 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 var salir = document.getElementsByClassName("salir")[0]
 salir.addEventListener('click', () => {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-  });
-
+ 
   sessionStorage.clear();   
-  window.history.back(10); 
+  
 });   
