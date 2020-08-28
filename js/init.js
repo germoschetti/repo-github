@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.addEventListener('DOMContentLoaded', () => {
      
-  if(sessionStorage.getItem("Usuario")){
+  if(sessionStorage.getItem("Usuario")|| onSignIn(googleUser) ){
     return true
 }else{
     window.location.href = 'login.html'

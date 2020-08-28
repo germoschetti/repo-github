@@ -80,10 +80,13 @@
          // The ID token you need to pass to your backend:
          var id_token = googleUser.getAuthResponse().id_token;
          console.log("ID Token: " + id_token);
-         location.href="index.html" 
-
-
-       }
+         
+         return true
+         
+       } 
+       
+       
+       
 
         //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
