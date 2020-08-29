@@ -84,11 +84,11 @@ function onSignIn(googleUser) {
    return true
 }
 // SIGN OUT GOOGLE
-/*function signOut() {
+function signOut() {
       sessionStorage.removeItem("Usergoogle");
       sessionStorage.clear();
  
-}*/
+}
 
 /*function onLoad() {
    gapi.load('auth2', function () {
@@ -98,10 +98,13 @@ function onSignIn(googleUser) {
 }*/
 
 var salir = document.getElementById("salir");
-salir.addEventListener('click', function(e) {
+/*salir.addEventListener('click', function(e) {
    sessionStorage.removeItem("Usergoogle");
    sessionStorage.clear();
  });
+*/
+
+ salir.addEventListener('click', signOut())
 
 
 
