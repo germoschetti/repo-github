@@ -89,23 +89,13 @@ function onSignIn(googleUser) {
  function signOut() {
       sessionStorage.removeItem("google");
       sessionStorage.clear();
-      return true
-     
+      return true 
  }
  var salir = document.getElementById("salir");
  salir.addEventListener('click', signOut)
  
 
-function adios(){
-if(signOut() === true){
-   location.href = "login.html"
- }
- else{
-   onSignIn()
- }
-}
 
-document.addEventListener('DOMContentLoaded', adios())
 /*function onLoad() {
    gapi.load('auth2', function () {
       gapi.auth2.init();
