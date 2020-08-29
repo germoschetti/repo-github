@@ -90,7 +90,7 @@ function signOut() {
       console.log('User signed out.');
       sessionStorage.removeItem("Usergoogle")
       sessionStorage.clear()
-      location.href = "login.html"
+      
    });
 
 }
