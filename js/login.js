@@ -85,7 +85,10 @@ function onSignIn(googleUser) {
 }
 // SIGN OUT GOOGLE
 function signOut() {
-   var auth2 = gapi.getAuthInstance();
+   gapi.load('auth2', function () {
+      gapi.auth2.init();
+   });
+   var auth2 = gapi.auth2.getAuthInstance();
    auth2.signOut().then(function () {
       console.log('User signed out.');
       sessionStorage.removeItem("Usergoogle");
@@ -112,9 +115,4 @@ function signOut() {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function onLoad() {
-   gapi.load('auth2', function () {
-      gapi.auth2.init();
-   });
-}
-);
+
