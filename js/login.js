@@ -75,8 +75,7 @@
 
       var entrar = document.getElementById("entrar")
      
-      entrar.addEventListener('click', onSignIn)
-
+      
        function onSignIn(googleUser) {
          // Useful data for your client-side scripts:
          var profile = googleUser.getBasicProfile();
