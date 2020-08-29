@@ -102,8 +102,9 @@
          var auth2 = gapi.auth2.getAuthInstance();
          auth2.signOut().then(function () {
            console.log('User signed out.');
+           sessionStorage.removeItem("Usergoogle") 
          });
-         sessionStorage.clear(); 
+       
        }
 
         //Función que se ejecuta una vez que se haya lanzado el evento de
