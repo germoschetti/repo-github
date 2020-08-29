@@ -59,4 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
 salir.addEventListener('click', () => {
   sessionStorage.clear();   
   
-}); 
+}); */
