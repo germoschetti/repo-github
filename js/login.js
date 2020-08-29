@@ -56,63 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
              `
       document.getElementsByClassName("usuario")[0].innerHTML = content1
       return true
-   } else if (sessionStorage.getItem("Usergoogle")) {
-      content1 += `
-        ${sessionStorage.getItem("Usergoogle")} 
-        `
-      document.getElementsByClassName("usuario")[0].innerHTML = content1
-   }
-
+   } 
 });
-//INICIO DE SESION CON GOOGLE
-
-   function onSignIn(googleUser) {
-   // Useful data for your client-side scripts:
-   var profile = googleUser.getBasicProfile();
-   sessionStorage.setItem("google", googleUser)
-   sessionStorage.setItem("Usergoogle", profile.getName())
-   console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-   console.log('Full Name: ' + profile.getName());
-   console.log('Given Name: ' + profile.getGivenName());
-   console.log('Family Name: ' + profile.getFamilyName());
-   console.log("Image URL: " + profile.getImageUrl());
-   console.log("Email: " + profile.getEmail());
- 
-   // The ID token you need to pass to your backend:
-   var id_token = googleUser.getAuthResponse().id_token;
-   console.log("ID Token: " + id_token);
-   location.href = "index.html"
- 
-   return true
-}
-var boton = document.getElementById("entrar")
-boton.addEventListener("click", onSignIn)
-
- // SIGN OUT GOOGLE
- function signOut() {
-      sessionStorage.removeItem("google");
-      sessionStorage.clear();
-      return false
- }
- var salir = document.getElementById("salir");
- salir.addEventListener('click', signOut);
- 
 
 
-/*function onLoad() {
-   gapi.load('auth2', function () {
-      gapi.auth2.init();
-   });
-
-}*/
-
-/*salir.addEventListener('click', function(e) {
-   sessionStorage.removeItem("Usergoogle");
+var salir = document.getElementById("salir")
+salir.addEventListener('click', function(e){
    sessionStorage.clear();
- });
-*/
-
- 
+})
 
 
 
