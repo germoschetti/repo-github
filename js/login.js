@@ -98,8 +98,7 @@ function onSignIn(googleUser) {
 }*/
 
 var salir = document.getElementById("salir");
-salir.addEventListener('click', () => {
-     
+salir.addEventListener('click', function(e) {
    sessionStorage.removeItem("Usergoogle");
    sessionStorage.clear();
  });
