@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.addEventListener('DOMContentLoaded', () => {
      
-  if(sessionStorage.getItem("Usuario")){
+  if(sessionStorage.getItem("Usuario") || sessionStorage.getItem("Usergoogle")){
     return true
 }else{
     window.location.href = 'login.html'
@@ -59,4 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
 salir.addEventListener('click', () => {
   sessionStorage.clear();   
   
-}); */
+}); 
