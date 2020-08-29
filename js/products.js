@@ -9,28 +9,27 @@ var currentSortCriteria = undefined;
 var minCost = undefined;
 var maxCost = undefined;
 
-function sortProducts(criteria, array){
+function sortProducts(criteria, array) {
     let result = [];
-    if (criteria === ORDER_ASC_BY_COST)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
+    if (criteria === ORDER_ASC_BY_COST) {
+        result = array.sort(function (a, b) {
+            if (a.cost < b.cost) { return -1; }
+            if (a.cost > b.cost) { return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_COST){
-        result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
+    } else if (criteria === ORDER_DESC_BY_COST) {
+        result = array.sort(function (a, b) {
+            if (a.cost > b.cost) { return -1; }
+            if (a.cost < b.cost) { return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_SOLD){
-        result = array.sort(function(a, b) {
+    } else if (criteria === ORDER_BY_PROD_SOLD) {
+        result = array.sort(function (a, b) {
             let aSold = parseInt(a.soldCount);
             let bSold = parseInt(b.soldCount);
 
-            if ( aSold > bSold ){ return -1; }
-            if ( aSold < bSold ){ return 1; }
+            if (aSold > bSold) { return -1; }
+            if (aSold < bSold) { return 1; }
             return 0;
         });
     }
@@ -38,14 +37,14 @@ function sortProducts(criteria, array){
     return result;
 }
 
-function showProducts(){
+function showProducts() {
     var content = "";
-   
-     for( let i = 0; i < currentProductsArray.length; i++){
-            let category = currentProductsArray[i];
-            if (((minCost == undefined) || (minCost != undefined && parseInt(category.cost) >= minCost)) &&
-            ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))){
-        content += `
+
+    for (let i = 0; i < currentProductsArray.length; i++) {
+        let category = currentProductsArray[i];
+        if (((minCost == undefined) || (minCost != undefined && parseInt(category.cost) >= minCost)) &&
+            ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))) {
+            content += `
         <a href="#" class="list-group-item list-group-item-action">
         <div class="row">
         <div class="col-3">
@@ -53,7 +52,7 @@ function showProducts(){
         </div>
         <div class="col">
             <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">`+ category.name +`</h4>
+                <h4 class="mb-1">`+ category.name + `</h4>
                 <small class="text-muted">` + category.soldCount + ` Sold </small>
             </div>
             <p class="mb-1">` + category.description + `</p>
@@ -62,75 +61,75 @@ function showProducts(){
     </div>
     </a>
         `
-            }
-        document.getElementById("products").innerHTML = content 
-        
-        }     
-}
-       function sortAndShowProducts(sortCriteria, productsArray){
-        currentSortCriteria = sortCriteria;
-    
-        if(productsArray != undefined){
-            currentProductsArray = productsArray;
         }
-    
-        currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
-    
-        //Muestro las categorías ordenadas
-        showProducts();
+        document.getElementById("products").innerHTML = content
 
+    }
+}
+function sortAndShowProducts(sortCriteria, productsArray) {
+    currentSortCriteria = sortCriteria;
 
-        
+    if (productsArray != undefined) {
+        currentProductsArray = productsArray;
     }
 
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(PRODUCTS_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
-                sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
-            }
-        });
-    
-        document.getElementById("asc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_ASC_BY_COST);
-        });
-    
-        document.getElementById("desc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_DESC_BY_COST);
-        });
-    
-        document.getElementById("sortByCost").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_BY_PROD_SOLD);
-        });
-    
-        document.getElementById("clearRangeFilter").addEventListener("click", function(){
-            document.getElementById("rangeFilterCostMin").value = "";
-            document.getElementById("rangeFilterCostMax").value = "";
-    
-            minCost = undefined;
-            maxCost = undefined;
-    
-            showProducts();
-        });
- })
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
+
+    //Muestro las categorías ordenadas
+    showProducts();
 
 
- document.getElementById("rangeFilterCost").addEventListener("click", function(){
+
+}
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
+        }
+    });
+
+    document.getElementById("asc").addEventListener("click", function () {
+        sortAndShowProducts(ORDER_ASC_BY_COST);
+    });
+
+    document.getElementById("desc").addEventListener("click", function () {
+        sortAndShowProducts(ORDER_DESC_BY_COST);
+    });
+
+    document.getElementById("sortByCost").addEventListener("click", function () {
+        sortAndShowProducts(ORDER_BY_PROD_SOLD);
+    });
+
+    document.getElementById("clearRangeFilter").addEventListener("click", function () {
+        document.getElementById("rangeFilterCostMin").value = "";
+        document.getElementById("rangeFilterCostMax").value = "";
+
+        minCost = undefined;
+        maxCost = undefined;
+
+        showProducts();
+    });
+})
+
+
+document.getElementById("rangeFilterCost").addEventListener("click", function () {
     //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
     //de productos por categoría.
     minCost = document.getElementById("rangeFilterCostMin").value;
     maxCost = document.getElementById("rangeFilterCostMax").value;
 
-    if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0){
+    if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0) {
         minCost = parseInt(minCost);
     }
-    else{
+    else {
         minCost = undefined;
     }
 
-    if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+    if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0) {
         maxCost = parseInt(maxCost);
     }
-    else{
+    else {
         maxCost = undefined;
     }
 
@@ -143,14 +142,14 @@ function showProducts(){
 const formulario = document.querySelector('#formulario');
 var datos = [];
 
-function filtrar(){
- contenido = '';
+function filtrar() {
+    contenido = '';
     const texto = formulario.value.toLowerCase();
-    for(producto of datos){
+    for (producto of datos) {
         let nombre = producto.name.toLowerCase();
-        if(nombre.indexOf(texto) !== -1){
+        if (nombre.indexOf(texto) !== -1) {
 
-contenido += `
+            contenido += `
 <a href="#" class="list-group-item list-group-item-action">
 <div class="row">
 <div class="col-3">
@@ -158,7 +157,7 @@ contenido += `
 </div>
 <div class="col">
     <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1">`+ producto.name +`</h4>
+        <h4 class="mb-1">`+ producto.name + `</h4>
         <small class="text-muted">` + producto.soldCount + ` Sold </small>
     </div>
     <p class="mb-1">` + producto.description + `</p>
@@ -171,13 +170,12 @@ contenido += `
         document.getElementById("products").innerHTML = contenido
     }
     formulario.addEventListener('keyup', filtrar)
-    
+
 }
 
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             datos = resultObj.data;
             //Muestro las categorías ordenadas
             filtrar(datos)
