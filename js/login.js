@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function onSignIn(googleUser) {
    // Useful data for your client-side scripts:
    var profile = googleUser.getBasicProfile();
+   sessionStorage.setItem("google", profile)
    sessionStorage.setItem("Usergoogle", profile.getName())
    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
    console.log('Full Name: ' + profile.getName());
@@ -85,7 +86,7 @@ function onSignIn(googleUser) {
 }
 // SIGN OUT GOOGLE
 function signOut() {
-      sessionStorage.removeItem("Usergoogle");
+      sessionStorage.removeItem("google");
       sessionStorage.clear();
  
 }
