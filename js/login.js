@@ -73,6 +73,9 @@
       
        });
 
+      var entrar = document.getElementById("entrar")
+     
+      entrar.addEventListener('click', onSignIn)
 
        function onSignIn(googleUser) {
          // Useful data for your client-side scripts:
@@ -88,6 +91,7 @@
          // The ID token you need to pass to your backend:
          var id_token = googleUser.getAuthResponse().id_token;
          console.log("ID Token: " + id_token);
+         location.href = "index.html"
          
          return true
          
