@@ -89,7 +89,7 @@ function onSignIn(googleUser) {
  function signOut() {
       sessionStorage.removeItem("google");
       sessionStorage.clear();
-      return true 
+      return false
  }
  var salir = document.getElementById("salir");
  salir.addEventListener('click', signOut);
