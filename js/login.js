@@ -89,13 +89,15 @@ function onSignIn(googleUser) {
  function signOut() {
       sessionStorage.removeItem("google");
       sessionStorage.clear();
-      var salir = document.getElementById("salir");
-      salir.addEventListener('click', signOut)
+      return true
+     
  }
+ var salir = document.getElementById("salir");
+ salir.addEventListener('click', signOut)
  
 
 function adios(){
-if(signOut()){
+if(signOut() === true){
    location.href = "login.html"
  }
  else{
