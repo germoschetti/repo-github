@@ -81,6 +81,8 @@ function signOut() {
 
 }
 
+
+
 var salir = document.getElementById("salir");
 salir.addEventListener('click', signOut)
 
