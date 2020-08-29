@@ -97,7 +97,7 @@ function onSignIn(googleUser) {
 
 }*/
 
-var salir = getElementsByClassName('salir')[0]
+var salir = document.getElementById("salir");
 salir.addEventListener('click', () => {
      
    sessionStorage.removeItem("Usergoogle");
