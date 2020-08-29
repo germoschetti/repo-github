@@ -90,6 +90,12 @@ function signOut() {
  
 }
 
+var salir = document.getElementById("salir");
+salir.addEventListener('click', signOut)
+
+
+
+
 /*function onLoad() {
    gapi.load('auth2', function () {
       gapi.auth2.init();
@@ -97,16 +103,15 @@ function signOut() {
 
 }*/
 
-var salir = document.getElementById("salir");
 /*salir.addEventListener('click', function(e) {
    sessionStorage.removeItem("Usergoogle");
    sessionStorage.clear();
  });
 */
 
- salir.addEventListener('click', signOut)
+ 
 
 
 
-
+ 
 
