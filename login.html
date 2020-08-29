@@ -16,7 +16,7 @@
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id"
     content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   <style>
     html,
     body {
@@ -54,6 +54,7 @@
       placeholder="Ingrese su Contraseña"> <br>
     <div id="errorP"></div>
     <button class="boton" type="button" id="boton" onclick="enviar()">Enviar</button>
+
     <div class="g-signin2" data-onsuccess="onSignIn" id="entrar" data-theme="dark"></div>
   </form>
 
