@@ -52,19 +52,25 @@
         
         //funcion que verifica que el usuario este logueado
         document.addEventListener('DOMContentLoaded', () => {
-         content1 = ""
-        if(sessionStorage.getItem("Usuario") || sessionStorage.getItem("Usergoogle") ){
+         content1 = "";
+          if(sessionStorage.getItem("Usuario")   ){
           content1 +=`
           <img src ="img/usuario2.gif" width = 19px>
              ${sessionStorage.getItem("Usuario")}
-             ${sessionStorage.getItem("Usergoogle")} 
-          
+
              `
-  document.getElementsByClassName("usuario")[0].innerHTML = content1
+             document.getElementsByClassName("usuario")[0].innerHTML = content1
          return true
-         
-         
-        }
+ 
+        }else if(sessionStorage.getItem("Usergoogle")){
+        content1 +=`
+
+        ${sessionStorage.getItem("Usergoogle")} 
+
+        `
+        document.getElementsByClassName("usuario")[0].innerHTML = content1
+      }
+      
        });
 
 
@@ -88,7 +94,13 @@
        } 
        
        
-       
+       function signOut() {
+         var auth2 = gapi.auth2.getAuthInstance();
+         auth2.signOut().then(function () {
+           console.log('User signed out.');
+         });
+         sessionStorage.clear(); 
+       }
 
         //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

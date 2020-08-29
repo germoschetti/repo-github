@@ -54,9 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'login.html'
   }
 });
-var salir = document.getElementsByClassName("salir")[0]
+
+/*var salir = document.getElementsByClassName("salir")[0]
 salir.addEventListener('click', () => {
- 
   sessionStorage.clear();   
   
-});   
+}); */
