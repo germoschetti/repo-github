@@ -92,7 +92,7 @@ function onSignIn(googleUser) {
       return true 
  }
  var salir = document.getElementById("salir");
- salir.addEventListener('click', signOut());
+ salir.addEventListener('click', signOut);
  
 
 

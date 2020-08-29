@@ -48,10 +48,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.addEventListener('DOMContentLoaded', () => {
      
-  if(sessionStorage.getItem("Usuario") || sessionStorage.getItem("google")){
-    return true
+  if(!sessionStorage.getItem("Usuario") || !sessionStorage.getItem("google")){
+     window.location.href = 'login.html'
 }else{
-    window.location.href = 'login.html'
+  true
   }
 });
 
