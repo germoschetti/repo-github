@@ -85,7 +85,7 @@ function onSignIn(googleUser) {
    location.href = "index.html"
  
    return true
-)}
+});
  // SIGN OUT GOOGLE
  function signOut() {
       sessionStorage.removeItem("google");
