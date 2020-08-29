@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 //INICIO DE SESION CON GOOGLE
 var boton = document.getElementById("entrar")
-boton.addEventListener("click", 
-function onSignIn(googleUser) {
+boton.addEventListener("click", onSignIn)
+   function onSignIn(googleUser) {
    // Useful data for your client-side scripts:
    var profile = googleUser.getBasicProfile();
    sessionStorage.setItem("google", googleUser)
@@ -85,7 +85,8 @@ function onSignIn(googleUser) {
    location.href = "index.html"
  
    return true
-});
+}
+
  // SIGN OUT GOOGLE
  function signOut() {
       sessionStorage.removeItem("google");
