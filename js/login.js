@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 //INICIO DE SESION CON GOOGLE
-var boton = document.getElementById("entrar")
-boton.addEventListener("click", onSignIn)
+
    function onSignIn(googleUser) {
    // Useful data for your client-side scripts:
    var profile = googleUser.getBasicProfile();
@@ -86,6 +85,8 @@ boton.addEventListener("click", onSignIn)
  
    return true
 }
+var boton = document.getElementById("entrar")
+boton.addEventListener("click", onSignIn)
 
  // SIGN OUT GOOGLE
  function signOut() {
