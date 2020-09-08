@@ -158,7 +158,7 @@ function filtrar() {
     for (producto of datos) {
         let nombre = producto.name.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
-            let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
+            let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
             contenido += `
     <a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
     <div class="row">
