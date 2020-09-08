@@ -44,8 +44,10 @@ function showProducts() {
         let category = currentProductsArray[i];
         if (((minCost == undefined) || (minCost != undefined && parseInt(category.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))) {
+
+               
             content += `
-        <a href="#" class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action" >
         <div class="row">
         <div class="col-3">
             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -61,11 +63,19 @@ function showProducts() {
     </div>
     </a>
         `
+            document.getElementById("products").innerHTML = content
         }
-        document.getElementById("products").innerHTML = content
+
 
     }
+    if (content == '') {
+        content += `
+        <div class="alert-danger p-3 rounded my-2"> No se ha encontrado ningun producto con ese indice de busqueda!</div>
+    `
+        document.getElementById("products").innerHTML = content
+    }
 }
+
 function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
 
@@ -148,30 +158,44 @@ function filtrar() {
     for (producto of datos) {
         let nombre = producto.name.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
-
+            let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
             contenido += `
-<a href="#" class="list-group-item list-group-item-action">
-<div class="row">
-<div class="col-3">
-    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-</div>
-<div class="col">
+    <a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
+    <div class="row">
+    <div class="col-3">
+    <img src=" ${producto.imgSrc}" alt="` + producto.description + `" class="img-thumbnail"> 
+    </div>
+    <div class="col">
     <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-1">`+ producto.name + `</h4>
         <small class="text-muted">` + producto.soldCount + ` Sold </small>
     </div>
     <p class="mb-1">` + producto.description + `</p>
     <p class="mb-1">` + producto.cost + ` USD </p>
-</div>
-</div>
-</a>
-`
+    </div>
+    </div>
+    </a>
+    `
+
         }
+
+        document.getElementById("products").innerHTML = contenido
+
+    }
+
+    if (contenido == '') {
+        document.getElementById("products").innerHTML = ''
+        contenido += `
+        <div class="alert-danger p-3 rounded my-2"> No se ha encontrado ningun producto con ese indice de busqueda!</div>
+`
         document.getElementById("products").innerHTML = contenido
     }
-    formulario.addEventListener('keyup', filtrar)
-
 }
+
+formulario.addEventListener('keyup', filtrar)
+
+
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {

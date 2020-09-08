@@ -249,15 +249,23 @@ a.custom-card:hover {
   display: block;
 }
 
-.salir{
 
-}
 .centrado{
   margin-left: 55px
-  
+  }
 
-}
-
+  .checked {
+    color: orange;
+  }
+  .comentJson{
+    margin-left: 15px;
+  }
+  .comentario{
+    margin-left: 15px;
+  }
+  .parrafo{
+    margin-left: 15px;
+  }
 
 
 
