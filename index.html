@@ -14,7 +14,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onload" async defer></script>
   
  
 </head>
@@ -145,9 +145,16 @@
     function signOut() {
    var auth2 = gapi.auth2.getAuthInstance();
    auth2.signOut().then(function () {
+     window.location.href='login.html'
      console.log('User signed out.');
      sessionStorage.clear()
    });
+  }
+
+  function onload(){
+    gapi.load('auth2',function(){
+      gapi.auth2.init();
+    })
   }
   </script>
 
