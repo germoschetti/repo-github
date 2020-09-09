@@ -15,7 +15,7 @@
     <!--LOGIN-->
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onload" async defer></script>
   
   <style>
     html,
@@ -60,8 +60,7 @@
   </div>
   <!--LOGIN CON GOOGLE-->
   <div class="g-signin2" data-onsuccess="onSignIn" id="gugl" data-theme="dark"></div>
-  <a href="#" onclick="signOut()" >Sign out</a>
- 
+   
 <script>
   function onSignIn(googleUser) {
       
