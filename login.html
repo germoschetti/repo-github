@@ -60,11 +60,9 @@
   <!-- <script src="js/init.js"></script>-->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-     var auth2 = gapi.auth2.getAuthInstance();
-     auth2.signOut().then(function () {
-     console.log('User signed out.');
+
      sessionStorage.clear();
-   });
+   
     });
   </script>
   <script src="js/login.js"></script>
