@@ -56,7 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
              `
       document.getElementsByClassName("usuario")[0].innerHTML = content1
       return true
-   } 
+   } else{ 
+      content1 += `
+            <img src ="img/usuario2.gif" width = 19px>
+             ${sessionStorage.getItem("google")}
+            
+      `
+      document.getElementsByClassName("usuario")[0].innerHTML = content1
+   }
 });
 
 /*function signOut() {
