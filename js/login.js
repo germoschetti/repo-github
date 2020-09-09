@@ -76,7 +76,7 @@ function onSignIn(googleUser) {
  
      }
    
-   document.getElementById("gugl").addEventListener('click' function(e){
+   document.getElementById("gugl").addEventListener('click', function(e){
       location.href = "index.html" 
    })
 
