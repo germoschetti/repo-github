@@ -54,12 +54,13 @@
       placeholder="Ingrese su Contraseña"> <br>
     <div id="errorP"></div>
     <button class="boton" type="button" id="boton" onclick="enviar()">Enviar</button>
+    <div class="g-signin2" data-onsuccess="onSignIn" id="gugl" data-theme="dark"></div>
   </form>
 
 
   </div>
   <!--LOGIN CON GOOGLE-->
-  <div class="g-signin2" data-onsuccess="onSignIn" id="gugl" data-theme="dark"></div>
+  
    
 <script>
   function onSignIn(googleUser) {
