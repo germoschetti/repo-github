@@ -69,10 +69,11 @@ function onSignIn(googleUser) {
    console.log("Image URL: " + profile.getImageUrl());
    console.log("Email: " + profile.getEmail());
    sessionStorage.setItem('google', profile.getGivenName())
-
+   
    // The ID token you need to pass to your backend:
    var id_token = googleUser.getAuthResponse().id_token;
    console.log("ID Token: " + id_token);
+   location.href = "index.html" 
      }
    
    
