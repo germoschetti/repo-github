@@ -145,6 +145,7 @@ function validarComents() {
             errorScore.className = ""
         }
     } else {
+        if(sessionStorage.getItem("google")){
         var usuario = sessionStorage.getItem("google")
         //var nameUser = usuario.indexOf("@")
         //var name = usuario.slice(0,nameUser);
@@ -163,7 +164,7 @@ function validarComents() {
             <div class = " container p-2 list-group-item list-group-item-action>
             <div class=" row  "> 
                  <div class=" row col-md-12 " style="height: 20px">
-                     <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${sessionStorage.getItem("Usuario")}</strong></h6> </div>
+                     <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${usuario}</strong></h6> </div>
                      <div><p> ${ date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
                  </div>
                  <div id="${coment.user}" class = 'comentario'>
@@ -176,6 +177,40 @@ function validarComents() {
 
     `
     document.getElementById("coment").innerHTML += content
+        }else{
+            var usuariolocal = sessionStorage.getItem("Usuario")
+            //var nameUser = usuario.indexOf("@")
+            //var name = usuario.slice(0,nameUser);
+            errorScore.className = ""
+            errorTxt.innerHTML += ` <strong>${usuariolocal}</strong> ` + " su comentario se ha enviado con éxito"
+            errorTxt.className = " my-2 alert-success p-2 rounded"
+            setTimeout(function(){  
+                 errorTxt.innerHTML = "";
+                errorTxt.className = ""; 
+         }, 2500)
+            
+           
+            var content = '';
+            content +=
+                `
+                <div class = " container p-2 list-group-item list-group-item-action>
+                <div class=" row  "> 
+                     <div class=" row col-md-12 " style="height: 20px">
+                         <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${usuariolocal}</strong></h6> </div>
+                         <div><p> ${ date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
+                     </div>
+                     <div id="${coment.user}" class = 'comentario'>
+                     </div>
+                    <p class="parrafo pt-2">${textarea}</p>
+        </div>
+            
+        </div>
+    
+    
+        `
+        document.getElementById("coment").innerHTML += content
+
+        }
     
 
         // AGREGAR ESTRELLAS A COMENTARIOS
