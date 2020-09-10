@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 //GOOGLE CERRAR SESION
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
   if (sessionStorage.getItem("Usuario") || sessionStorage.getItem("google")) {

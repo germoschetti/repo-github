@@ -145,11 +145,11 @@ function validar() {
             errorScore.className = ""
         }
     } else {
-        var usuario = sessionStorage.getItem("Usuario")
-        var nameUser = usuario.indexOf("@")
-        var name = usuario.slice(0,nameUser);
+        var usuario = sessionStorage.getItem("google")
+        //var nameUser = usuario.indexOf("@")
+        //var name = usuario.slice(0,nameUser);
         errorScore.className = ""
-        errorTxt.innerHTML += ` <strong>${name}</strong> ` + " su comentario se ha enviado con éxito"
+        errorTxt.innerHTML += ` <strong>${usuario}</strong> ` + " su comentario se ha enviado con éxito"
         errorTxt.className = " my-2 alert-success p-2 rounded"
         setTimeout(function(){  
              errorTxt.innerHTML = "";
