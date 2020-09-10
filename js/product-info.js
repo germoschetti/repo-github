@@ -120,7 +120,7 @@ function calificar(num) {
 
 //VALIDACION DE CAMPOS DE COMENTARIOS
 
-function validar() {
+function validarComents() {
     var date = new Date();
     var textarea = document.getElementById("textarea").value;
     var errorTxt = document.getElementById("error");
