@@ -9,13 +9,13 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js?onload=onload" async defer></script>
   <style>
     .checked {
@@ -78,7 +78,8 @@
         </div>
 
         <div class=" col-md-1 row justify-content-end">
-          <button type="button" id="comentar" class="class= row justify-content-end btn btn-primary my-2" onclick="validarComents();">Comentar</button>
+          <button type="button" id="comentar" class="class= row justify-content-end btn btn-primary my-2"
+            onclick="validarComents();">Comentar</button>
         </div>
       </div>
     </form>
@@ -103,28 +104,28 @@
     </div>
     <script>
       function signOut() {
-      sessionStorage.clear()
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        window.location.href = 'login.html'
-        console.log('User signed out.');
-       
-      });
-    }
-    
-    function onload() {
-      gapi.load('auth2', function () {
-        gapi.auth2.init()
-      })
-    }
-   </script>
+        sessionStorage.clear()
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          window.location.href = 'login.html'
+          console.log('User signed out.');
 
-    
+        });
+      }
+
+      function onload() {
+        gapi.load('auth2', function () {
+          gapi.auth2.init()
+        })
+      }
+    </script>
+
+    <script src="js/login.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
-    <script src="js/login.js"></script>
+
 </body>
 
 </html>

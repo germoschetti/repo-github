@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
              `
       document.getElementsByClassName("usuario")[0].innerHTML = content1
       return true
-   } else{ 
+   } else {
       content1 += `
             <img src ="img/usuario2.gif" width = 19px>
              ${sessionStorage.getItem("google")}
@@ -74,17 +74,17 @@ function onSignIn(googleUser) {
    console.log('Family Name: ' + profile.getFamilyName());
    console.log("Image URL: " + profile.getImageUrl());
    console.log("Email: " + profile.getEmail());
- 
+
    // The ID token you need to pass to your backend:
    var id_token = googleUser.getAuthResponse().id_token;
    console.log("ID Token: " + id_token);
- 
+
    sessionStorage.setItem('google', profile.getGivenName())
    location.href = "index.html"
- 
- }
- 
- 
+
+}
+
+
 
 
 

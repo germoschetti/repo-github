@@ -2,15 +2,15 @@ var modelo = [];
 const urlString = window.location.search;
 const urlParams = new URLSearchParams(urlString)
 const product = urlParams.get('id')
- 
+
 
 function productsInfo() {
-for(var h = 0; h < modelo.length; h++){
-    var producto = modelo[h]
-    
-    if(product == producto.name){
-    var contenido = "";
-    contenido += `
+    for (var h = 0; h < modelo.length; h++) {
+        var producto = modelo[h]
+
+        if (product == producto.name) {
+            var contenido = "";
+            contenido += `
             <div class = "container-fluid p-5">
             
                 <div class="row col-md-12">
@@ -52,13 +52,12 @@ for(var h = 0; h < modelo.length; h++){
                                 </div></br>
                                 <div class=""><button type="button" class="btn btn-dark btn-lg p-2"> Agregar al carrito</button></div>
                                 </br>
-                                <div><p  style="font-size = 15%;"> ${producto.description} </p></div>
-                                
+                                <div><p  style="font-size = 15%;"> ${producto.description} </p></div>    
                     </div>     
             </div>
         `
+        }
     }
-}
     document.getElementById("info").innerHTML = contenido
 }
 
@@ -80,8 +79,7 @@ function mostrarComent() {
                      <div id="${coment.user}" class = ' comentJson '>
                      </div>
                     <p class="parrafo pt-2">${coment.description}</p>
-        </div>
-            
+        </div>  
         </div>
         
     `
@@ -145,22 +143,21 @@ function validarComents() {
             errorScore.className = ""
         }
     } else {
-        if(sessionStorage.getItem("google")){
-        var usuario = sessionStorage.getItem("google")
-        //var nameUser = usuario.indexOf("@")
-        //var name = usuario.slice(0,nameUser);
-        errorScore.className = ""
-        errorTxt.innerHTML += ` <strong>${usuario}</strong> ` + " su comentario se ha enviado con éxito"
-        errorTxt.className = " my-2 alert-success p-2 rounded"
-        setTimeout(function(){  
-             errorTxt.innerHTML = "";
-            errorTxt.className = ""; 
-     }, 2500)
-        
-       
-        var content = '';
-        content +=
-            `
+        if (sessionStorage.getItem("google")) {
+            var usuario = sessionStorage.getItem("google")
+            //var nameUser = usuario.indexOf("@")
+            //var name = usuario.slice(0,nameUser);
+            errorScore.className = ""
+            errorTxt.innerHTML += ` <strong>${usuario}</strong> ` + " su comentario se ha enviado con éxito"
+            errorTxt.className = " my-2 alert-success p-2 rounded"
+            setTimeout(function () {
+                errorTxt.innerHTML = "";
+                errorTxt.className = "";
+            }, 2500)
+
+            var content = '';
+            content +=
+                `
             <div class = " container p-2 list-group-item list-group-item-action>
             <div class=" row  "> 
                  <div class=" row col-md-12 " style="height: 20px">
@@ -170,26 +167,22 @@ function validarComents() {
                  <div id="${coment.user}" class = 'comentario'>
                  </div>
                 <p class="parrafo pt-2">${textarea}</p>
+    </div> 
     </div>
-        
-    </div>
-
-
     `
-    document.getElementById("coment").innerHTML += content
-        }else{
+            document.getElementById("coment").innerHTML += content
+        } else {
             var usuariolocal = sessionStorage.getItem("Usuario")
             //var nameUser = usuario.indexOf("@")
             //var name = usuario.slice(0,nameUser);
             errorScore.className = ""
             errorTxt.innerHTML += ` <strong>${usuariolocal}</strong> ` + " su comentario se ha enviado con éxito"
             errorTxt.className = " my-2 alert-success p-2 rounded"
-            setTimeout(function(){  
-                 errorTxt.innerHTML = "";
-                errorTxt.className = ""; 
-         }, 2500)
-            
-           
+            setTimeout(function () {
+                errorTxt.innerHTML = "";
+                errorTxt.className = "";
+            }, 2500)
+
             var content = '';
             content +=
                 `
@@ -202,17 +195,12 @@ function validarComents() {
                      <div id="${coment.user}" class = 'comentario'>
                      </div>
                     <p class="parrafo pt-2">${textarea}</p>
+        </div> 
         </div>
-            
-        </div>
-    
-    
-        `
-        document.getElementById("coment").innerHTML += content
+      `
+            document.getElementById("coment").innerHTML += content
 
         }
-    
-
         // AGREGAR ESTRELLAS A COMENTARIOS
         if (textarea != '' || score !== '') {
             var array = document.getElementsByClassName('comentario');
@@ -230,8 +218,6 @@ function validarComents() {
         }
     }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTOSSS).then(function (resultObj) {
@@ -254,13 +240,3 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-
-});
-
-/*var d = new Date();
-alert(d.getDate()+ '/' + d.getMonth() + '/'+ d.getFullYear()+' '+d.getHours()+':'+ d.getMinutes())*/
