@@ -88,7 +88,23 @@
       <div></div>
     </div>
   </div>
-
+  <script>
+    function signOut() {
+    sessionStorage.clear()
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      window.location.href = 'login.html'
+      console.log('User signed out.');
+     
+    });
+  }
+  
+  function onload() {
+    gapi.load('auth2', function () {
+      gapi.auth2.init()
+    })
+  }
+ </script>
   
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
