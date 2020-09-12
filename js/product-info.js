@@ -154,7 +154,7 @@ function validarComents() {
             }, 2500)
 
             var content = '';
-            var mes = date.getDate() + 1
+            var mes = date.getMonth() + 1
             content +=
                 `
             <div class = " container p-2 list-group-item list-group-item-action>
@@ -181,7 +181,7 @@ function validarComents() {
                 errorTxt.innerHTML = "";
                 errorTxt.className = "";
             }, 2500)
-
+            var mes = date.getMonth() + 1
             var content = '';
             content +=
                 `
@@ -189,7 +189,7 @@ function validarComents() {
                 <div class=" row  "> 
                      <div class=" row col-md-12 " style="height: 20px">
                          <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${namelocal}</strong></h6> </div>
-                         <div><p> ${ date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
+                         <div><p> ${ date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
                      </div>
                      <div id="${namelocal}" class = 'comentario'>
                      </div>
