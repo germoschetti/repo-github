@@ -171,10 +171,10 @@ function validarComents() {
             document.getElementById("coment").innerHTML += content
         } else {
             var usuariolocal = sessionStorage.getItem("Usuario")
-            var nameUser = usuario.indexOf("@")
-            var name = usuario.slice(0,nameUser);
+            var nameUser = usuariolocal.indexOf("@")
+            var namelocal = usuariolocal.slice(0,nameUser);
             errorScore.className = ""
-            errorTxt.innerHTML += ` <strong>${name}</strong> ` + " su comentario se ha enviado con éxito"
+            errorTxt.innerHTML += ` <strong>${namelocal}</strong> ` + " su comentario se ha enviado con éxito"
             errorTxt.className = " my-2 alert-success p-2 rounded"
             setTimeout(function () {
                 errorTxt.innerHTML = "";
@@ -187,10 +187,10 @@ function validarComents() {
                 <div class = " container p-2 list-group-item list-group-item-action>
                 <div class=" row  "> 
                      <div class=" row col-md-12 " style="height: 20px">
-                         <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${name}</strong></h6> </div>
+                         <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${namelocal}</strong></h6> </div>
                          <div><p> ${ date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
                      </div>
-                     <div id="${coment.user}" class = 'comentario'>
+                     <div id="${namelocal}" class = 'comentario'>
                      </div>
                     <p class="parrafo pt-2">${textarea}</p>
         </div> 
