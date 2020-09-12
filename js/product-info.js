@@ -219,7 +219,7 @@ function validarComents() {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTOSSS).then(function (resultObj) {
+    getJSONData(PRODUCTOS_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             modelo = resultObj.data;
             //Muestro las categorías ordenadas

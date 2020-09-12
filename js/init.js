@@ -6,7 +6,7 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
-const PRODUCTOSSS = "https://gist.githubusercontent.com/germoschetti/db379d2b1452228aaac494b99dd97dbf/raw/4a8af989efbb3d9d0ebbb1e4c30ae2543f4730e5/info"
+const PRODUCTOS_INFO_URL = "https://gist.githubusercontent.com/germoschetti/db379d2b1452228aaac494b99dd97dbf/raw/4a8af989efbb3d9d0ebbb1e4c30ae2543f4730e5/info"
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
