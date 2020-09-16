@@ -1,4 +1,5 @@
 var modelo = [];
+var productlist = [];
 const urlString = window.location.search;
 const urlParams = new URLSearchParams(urlString)
 const product = urlParams.get('id')
@@ -10,8 +11,10 @@ function productsInfo() {
 
         if (product == producto.name) {
             var contenido = "";
+            var relatedContent = "";
             contenido += `
-                <div class = "container-fluid p-5">
+            
+                <div class = "container-fluid p-5  my-5">
             
                 <div class="row col-md-12">
                             <div class="col-md-6 p-5" style="height: 600px" >
@@ -55,11 +58,47 @@ function productsInfo() {
                                 <div><p  style="font-size = 15%;"> ${producto.description} </p></div>    
                     </div>     
             </div>
+
         `
+
+            var relatedProduct = producto.relatedProducts
+            for (var i = 0; i < relatedProduct.length; i++) {
+                var related = relatedProduct[i];
+                var productRelate = productlist[related]
+                console.log(productRelate)
+
+                relatedContent += `
+
+            <div class="col-md-5">
+            <div class="card" style="width:350px">
+              <img class="card-img-top" src="${productRelate.imgSrc} "width="100%" alt="Card image" >
+              <div class="card-body">
+                <h4 class="card-title">${productRelate.name}</h4>
+                <p class="card-text">${productRelate.description}</p>
+                <a href="product-info.html?id=${productRelate.name}" class="btn btn-primary">Comprar</a>
+              </div>
+              </div>
+              
+            </div>
+           
+            
+             `
+            }
+
         }
     }
-    document.getElementById("info").innerHTML = contenido
+
+
+
+
+    document.getElementById("info").innerHTML = contenido;
+    document.getElementById("related").innerHTML = relatedContent;
+
+
 }
+
+
+
 
 //COMENTARIOS DESDE JSON 
 //ARREGLAR PUNTUACION CON ESTRELLAS 
@@ -79,8 +118,9 @@ function mostrarComent() {
                      <div id="${coment.user}" class = ' comentJson '>
                      </div>
                     <p class="parrafo pt-2">${coment.description}</p>
-        </div>  
+         </div>  
         </div>
+        
         
     `
         document.getElementById("coment").innerHTML = contenido
@@ -161,7 +201,7 @@ function validarComents() {
             <div class=" row  "> 
                  <div class=" row col-md-12 " style="height: 20px">
                      <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${usuario}</strong></h6> </div>
-                     <div><p> ${ date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
+                     <div><p> ${date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
                  </div>
                  <div id="${coment.user}" class = 'comentario'>
                  </div>
@@ -173,7 +213,7 @@ function validarComents() {
         } else {
             var usuariolocal = sessionStorage.getItem("Usuario")
             var nameUser = usuariolocal.indexOf("@")
-            var namelocal = usuariolocal.slice(0,nameUser);
+            var namelocal = usuariolocal.slice(0, nameUser);
             errorScore.className = ""
             errorTxt.innerHTML += ` <strong>${namelocal}</strong> ` + " su comentario se ha enviado con éxito"
             errorTxt.className = " my-2 alert-success p-2 rounded"
@@ -189,7 +229,7 @@ function validarComents() {
                 <div class=" row  "> 
                      <div class=" row col-md-12 " style="height: 20px">
                          <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${namelocal}</strong></h6> </div>
-                         <div><p> ${ date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
+                         <div><p> ${date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()}</p></div>
                      </div>
                      <div id="${namelocal}" class = 'comentario'>
                      </div>
@@ -217,6 +257,21 @@ function validarComents() {
         }
     }
 }
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productlist = resultObj.data;
+            //Muestro las categorías ordenadas
+            productsInfo(productlist)
+        }
+    });
+});
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTOS_INFO_URL).then(function (resultObj) {

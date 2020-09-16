@@ -31,22 +31,20 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-
-    </div>
-    <div class="row menu ">
-      <ul class="menu">
-        <li><a href="#" class="py-2  usuario"></a> </li>
-        <ul class="submenu">
-          <li> <a href="my-profile.html"> Mi Perfil</a></li>
-          <li><a href="login.html" onclick="signOut()">Sign out</a></li>
-        </ul>
-      </ul>
-    </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle usuario bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Ver carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="login.html" onclick="signOut()">Salir</a>
+        </div>
+      </div>
   </nav>
   <div id="info"></div>
+ 
   <div class="container">
-    <div class=" row justify-content-center">
+    <div class=" row justify-content-center mt-5">
       <h3>Comentarios</h3>
     </div>
 
@@ -77,6 +75,8 @@
           <p id="error"></p>
         </div>
 
+
+
         <div class=" col-md-1 row justify-content-end">
           <button type="button" id="comentar" class="class= row justify-content-end btn btn-primary my-2"
             onclick="validarComents();">Comentar</button>
@@ -84,6 +84,10 @@
       </div>
     </form>
     <div id="coment"></div>
+    <div class="container-fluid row justify-content-center mt-5 mb-3">
+      <h3>Tambien te puede interesar...</h3>
+    </div>
+      <div id="related" class="container-fluid row justify-content-center"> </div>
 
     <footer class="text-muted">
       <div class="container">
