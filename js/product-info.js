@@ -60,22 +60,19 @@ function productsInfo() {
             </div>
 
         `
-
             var relatedProduct = producto.relatedProducts
             for (var i = 0; i < relatedProduct.length; i++) {
                 var related = relatedProduct[i];
-                var productRelate = productlist[related]
-                console.log(productRelate)
-
+                var productRelated = productlist[related]
                 relatedContent += `
 
             <div class="col-md-5">
             <div class="card" style="width:350px">
-              <img class="card-img-top" src="${productRelate.imgSrc} "width="100%" alt="Card image" >
+              <img class="card-img-top" src="${productRelated.imgSrc} "width="100%" alt="Card image" >
               <div class="card-body">
-                <h4 class="card-title">${productRelate.name}</h4>
-                <p class="card-text">${productRelate.description}</p>
-                <a href="product-info.html?id=${productRelate.name}" class="btn btn-primary">Comprar</a>
+                <h4 class="card-title">${productRelated.name}</h4>
+                <p class="card-text">${productRelated.description}</p>
+                <a href="product-info.html?id=${productRelated.name}" class="btn btn-primary">Comprar</a>
               </div>
               </div>
               
@@ -88,17 +85,10 @@ function productsInfo() {
         }
     }
 
-
-
-
     document.getElementById("info").innerHTML = contenido;
     document.getElementById("related").innerHTML = relatedContent;
 
-
 }
-
-
-
 
 //COMENTARIOS DESDE JSON 
 //ARREGLAR PUNTUACION CON ESTRELLAS 
