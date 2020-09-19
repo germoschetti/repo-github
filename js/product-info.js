@@ -66,7 +66,7 @@ function productsInfo() {
                 var productRelated = productlist[related]
                 relatedContent += `
 
-            <div class="col-md-5 col-sm-6">
+            <div class="col-md-5">
             <div class="card" style="width:350px">
               <img class="card-img-top" src="${productRelated.imgSrc} "width="100%" alt="Card image" >
               <div class="card-body">
