@@ -161,7 +161,7 @@ function filtrar() {
             if(sessionStorage.getItem('google')){
             let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
             contenido += `
-    <a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
+    <a href="${url}"  class="list-group-item list-group-item-action">
     <div class="row">
     <div class="col-3">
     <img src=" ${producto.imgSrc}" alt="` + producto.description + `" class="img-thumbnail"> 
@@ -177,10 +177,12 @@ function filtrar() {
     </div>
     </a>
     `
+    document.getElementById("products").innerHTML = contenido
+
 }else{
     let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
     contenido += `
-<a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
+<a href="${url}"  class="list-group-item list-group-item-action">
 <div class="row">
 <div class="col-3">
 <img src=" ${producto.imgSrc}" alt="` + producto.description + `" class="img-thumbnail"> 
@@ -199,9 +201,10 @@ function filtrar() {
 
 }
 
+document.getElementById("products").innerHTML = contenido
         }
 
-        document.getElementById("products").innerHTML = contenido
+        
 
     }
 
