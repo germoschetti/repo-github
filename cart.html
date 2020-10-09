@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <script src="https://apis.google.com/js/platform.js?onload=onload"  defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onload" defer></script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,9 +12,12 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
+  <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -30,6 +33,7 @@
       }
     }
   </style>
+  -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
@@ -43,7 +47,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle usuario bg-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle usuario bg-dark" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html">Ver carrito</a>
@@ -52,46 +57,95 @@
         </div>
       </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container col-12">
+    <h2 class=" row justify-content-center my-5">Mi Compra</h2>
+  </div>
+
+
+  <div class="container-fluid ml-5">
+    <div class="row ml-5">
+      <p class="checked" id="nav1">Mi carrito</p>
+      <p class="mx-5" id="nav2">Metodo de envio</p>
+      <p id="nav3">Metodo de pago</p>
     </div>
   </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+
+  <div class="container-fluid row">
+
+    <div id="datos" class="row col-12">
+      <div class="container-fluid ml-5 col-md-8 row" id="carritoDetails" style="display: block; ">
+        <div id="cart" class=" list-group-item list-group-itemrounded">
+          <div class="container row my-auto">
+            <p class="w-5 ml-5"></p>
+            <p class="col ml-5 my-auto">
+              Producto
+            </p>
+            <p class="col ml-5 my-auto"></p>
+            <p class="col ml-2 my-auto">
+              Precio unitario
+            </p>
+            <p class="col my-auto row justify-content-center">
+              Cantidad
+            </p>
+            <p class="col mr-2 my-auto row justify-content-end ">
+              Total
+            </p>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="col-1"></div>
+      <div class="card" id="totalCard" style="height: 300px; width: 290px;">
+        <div class="my-4 ml-2">
+          <h5>Subtotal UYU: </h5><p id="subtotal"></p>
+          <h5>Subtotal USD: </h5><p id="subtotal"></p>
+          
+        
+        </div>
+        <div class="my-4 ml-2"><p id="costoEnvio"></p>Envío:</div>
+        <div class="my-4 ml-2"><p id="costoTotal"></p>Total:</div>
+      </div>
     </div>
-  </div>
-  <script>
-    function signOut() {
-    sessionStorage.clear()
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      window.location.href = 'login.html'
-      console.log('User signed out.');
-     
-    });
-  }
-  
-  function onload() {
-    gapi.load('auth2', function () {
-      gapi.auth2.init()
-    })
-  }
- </script>
-  
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/login.js"></script>
+
+
+    <div id="envio"></div>
+    <div id="pago"></div>
+
+
+
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <script>
+      function signOut() {
+        sessionStorage.clear()
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          window.location.href = 'login.html'
+          console.log('User signed out.');
+
+        });
+      }
+
+      function onload() {
+        gapi.load('auth2', function () {
+          gapi.auth2.init()
+        })
+      }
+    </script>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

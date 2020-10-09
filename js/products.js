@@ -47,7 +47,7 @@ function showProducts() {
 
                
             content += `
-        <a href="product-info.html" class="list-group-item list-group-item-action" >
+        <a href="product-info.html" class="list-group-item list-group-item-action " >
         <div class="row">
         <div class="col-3">
             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -158,6 +158,7 @@ function filtrar() {
     for (producto of datos) {
         let nombre = producto.name.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
+            if(sessionStorage.getItem('google')){
             let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
             contenido += `
     <a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
@@ -176,6 +177,27 @@ function filtrar() {
     </div>
     </a>
     `
+}else{
+    let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
+    contenido += `
+<a href="${url}"  class="list-group-item list-group-item-action" onclick="enviarDatos()" >
+<div class="row">
+<div class="col-3">
+<img src=" ${producto.imgSrc}" alt="` + producto.description + `" class="img-thumbnail"> 
+</div>
+<div class="col">
+<div class="d-flex w-100 justify-content-between">
+<h4 class="mb-1">`+ producto.name + `</h4>
+<small class="text-muted">` + producto.soldCount + ` Sold </small>
+</div>
+<p class="mb-1">` + producto.description + `</p>
+<p class="mb-1">` + producto.cost + ` USD </p>
+</div>
+</div>
+</a>
+`
+
+}
 
         }
 
