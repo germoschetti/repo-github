@@ -73,8 +73,8 @@
   <div class="container-fluid row">
 
     <div id="datos" class="row col-12">
-      <div class="container-fluid ml-5 col-md-8 row" id="carritoDetails" style="display: block; ">
-        <div id="cart" class=" list-group-item list-group-itemrounded">
+      <div class="container-fluid ml-5 col-md-8 row list-group-item list-group-itemrounded shadow-sm p-3 mb-5 bg-white rounded" id="carritoDetails" style="display: block; ">
+        <div id="cart" >
           <div class="container row my-auto">
             <p class="w-5 ml-5"></p>
             <p class="col ml-5 my-auto">
@@ -95,19 +95,27 @@
         </div>
       </div>
       <div class="col-1"></div>
-      <div class="card" id="totalCard" style="height: 300px; width: 290px;">
+      <div class="card shadow-sm p-3 mb-5 bg-white rounded " id="totalCard" style="height: 400px; width: 330px;">
+        <h2 class=" row justify-content-center my-2">Mi compra</h2> <hr>
         <div class="my-4 ml-2">
-          <h5>Subtotal UYU: </h5><p id="subtotal"></p>
-          <h5>Subtotal USD: </h5><p id="subtotal"></p>
-          
-        
+          <div class="row col">
+          <h6 class="mr-2">Subtotal UYU: </h6><p id="subtotalUYU"></p>
         </div>
-        <div class="my-4 ml-2"><p id="costoEnvio"></p>Envío:</div>
-        <div class="my-4 ml-2"><p id="costoTotal"></p>Total:</div>
+        <div class="row col my-3">
+          <h6 class="mr-2 ">Subtotal USD: </h6><p id="subtotalUSD"></p>
+          </div>
+          <div class="row col">
+          <h6 class="my-4 ">Envio: </h6><p id="costoEnvio"></p>
+          </div>
+          <div class="row col">
+          <h6 class="my-4 ">Total: </h6><p id="costoTotal"></p>
+          </div>
+        </div>
+
       </div>
     </div>
 
-
+    <div id="volverCart" class="list-group-item list-group-itemrounded shadow-sm p-3 mb-5 bg-white rounded" style="display: none;"></div>
     <div id="envio"></div>
     <div id="pago"></div>
 
