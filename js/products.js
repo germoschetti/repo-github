@@ -153,12 +153,13 @@ const formulario = document.querySelector('#formulario');
 var datos = [];
 
 function filtrar() {
+    var location = window.location.href;
     contenido = '';
     const texto = formulario.value.toLowerCase();
     for (producto of datos) {
         let nombre = producto.name.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
-            if(sessionStorage.getItem('google')){
+            if(location == 'https://germoschetti.github.io/repo-github/products.html'){
             let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
             contenido += `
     <a href="${url}"  class="list-group-item list-group-item-action">
