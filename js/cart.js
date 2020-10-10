@@ -53,7 +53,6 @@ function arrays(cantidad, precio, currency) {
 
 //PASO TODO CADA PRECIO A DOLARES
 
-
 var sumaDolares = 0;
 function pasaraDolares(precio, currency) {
     if (currency == 'USD') {

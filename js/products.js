@@ -45,9 +45,11 @@ function showProducts() {
         if (((minCost == undefined) || (minCost != undefined && parseInt(category.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))) {
 
+                if(location == 'https://germoschetti.github.io/repo-github/products.html'){
+                    let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + category.name);
                
             content += `
-        <a href="product-info.html" class="list-group-item list-group-item-action " >
+        <a href="${url}" class="list-group-item list-group-item-action " >
         <div class="row">
         <div class="col-3">
             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -64,6 +66,27 @@ function showProducts() {
     </a>
         `
             document.getElementById("products").innerHTML = content
+                }else{
+                    let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + category.name);
+                    content += `
+                    <a href="${url}" class="list-group-item list-group-item-action " >
+                    <div class="row">
+                    <div class="col-3">
+                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ category.name + `</h4>
+                            <small class="text-muted">` + category.soldCount + ` Sold </small>
+                        </div>
+                        <p class="mb-1">` + category.description + `</p>
+                        <p class="mb-1">` + category.cost + ` USD </p>
+                    </div>
+                </div>
+                </a>
+                    `
+                    document.getElementById("products").innerHTML = content
+                }
         }
 
 
