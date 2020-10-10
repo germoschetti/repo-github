@@ -46,6 +46,7 @@ function enviar() {
 }
 
 //FUNCION QUE IMPRIME NOMBRE DE USUARIO
+
 document.addEventListener('DOMContentLoaded', () => {
    content1 = "";
    if (sessionStorage.getItem("Usuario")) {
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
              `
       document.getElementsByClassName("usuario")[0].innerHTML = content1
       return true
-   } else {
+   }  else if (sessionStorage.getItem("google")){
       content1 += `
             <img src ="img/usuario2.gif" width = 19px>
              ${sessionStorage.getItem("google")}
@@ -65,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementsByClassName("usuario")[0].innerHTML = content1
    }
 });
+
+
 function onSignIn(googleUser) {
 
    // Useful data for your client-side scripts:

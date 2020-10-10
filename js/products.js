@@ -111,9 +111,9 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     //Muestro las categorías ordenadas
     showProducts();
 
-
-
 }
+
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {

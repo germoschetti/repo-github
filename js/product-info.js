@@ -90,6 +90,9 @@ function productsInfo() {
 
 }
 
+
+
+
 //COMENTARIOS DESDE JSON 
 //ARREGLAR PUNTUACION CON ESTRELLAS 
 var comentarios = [];
