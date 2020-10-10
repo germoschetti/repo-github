@@ -58,7 +58,7 @@ function pasaraDolares(precio, currency) {
     if (currency == 'USD') {
         arrayDolar.push(precio)
     } else {
-        var convertir = precio / 44
+        var convertir = precio / 40
         arrayDolar.push(convertir);
     }
     for (var i = 0; i < arrayDolar.length; i++) {
@@ -75,11 +75,12 @@ function pasaraPesos(precio, currency) {
     if (currency == 'UYU') {
         arrayPesos.push(precio)
     } else {
-        var convertir = precio * 44
+        var convertir = precio * 40
         arrayPesos.push(convertir);
         for (var i = 0; i < arrayPesos.length; i++) {
             sumaPesos += arrayPesos[i]
         }
+
         document.getElementById('subtotalUYU').innerHTML = sumaPesos;
     }
 }
