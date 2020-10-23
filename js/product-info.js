@@ -17,7 +17,7 @@ function productsInfo() {
                 <div class = "container-fluid p-5  my-5">
             
                 <div class="row col-md-12">
-                            <div class="col-md-6 p-5" style="height: 600px" >
+                            <div class=" col-md-12 col-sm-12 col-lg-6  p-5" >
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                 <div class="carousel-item active ">
@@ -47,7 +47,7 @@ function productsInfo() {
                                                               
                             </div> 
                             </div>
-                            <div class="col-md-5 p-4"> 
+                            <div class="col-sm-12 col-md-12 col-lg-5 p-4"> 
                             <div ><h1>${producto.name}</h1></div>
                                 <div class="row p-2">
                                     <h3> ${producto.currency}${producto.cost}</h3>
@@ -66,8 +66,8 @@ function productsInfo() {
                 var productRelated = productlist[related]
                 relatedContent += `
 
-            <div class="col-md-5">
-            <div class="card" style="width:350px">
+            <div class="col-lg-5 col-md-8 col-sm-12 mt-2">
+            <div class="card" >
               <img class="card-img-top" src="${productRelated.imgSrc} "width="100%" alt="Card image" >
               <div class="card-body">
                 <h4 class="card-title">${productRelated.name}</h4>
@@ -87,11 +87,7 @@ function productsInfo() {
 
     document.getElementById("info").innerHTML = contenido;
     document.getElementById("related").innerHTML = relatedContent;
-
 }
-
-
-
 
 //COMENTARIOS DESDE JSON 
 //ARREGLAR PUNTUACION CON ESTRELLAS 
@@ -104,9 +100,9 @@ function mostrarComent() {
        
         <div class = " container p-2 list-group-item list-group-item-action>
                 <div class=" row  "> 
-                	 <div class=" row col-md-12 " style="height: 20px">
+                	 <div class=" row col-md-12 " >
                          <div class="h-25 d-inline-block col-md-10 m-0"> <h6><strong>${coment.user}</strong></h6> </div>
-                         <div><p>${coment.dateTime}</p></div>
+                         <div class='col-md-12 col-sm-12 col-lg-2'><p>${coment.dateTime}</p></div>
                      </div>
                      <div id="${coment.user}" class = ' comentJson '>
                      </div>
@@ -164,7 +160,7 @@ function validarComents() {
         if (textarea == '') {
             errorTxt.innerHTML += "Debe escribir algo en la caja de comentario"
             errorTxt.className = " my-2 alert-danger p-2 rounded "
-        } else {
+        }else {
             errorTxt.innerHTML = ""
             errorTxt.className = ""
         }

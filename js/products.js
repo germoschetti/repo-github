@@ -45,11 +45,11 @@ function showProducts() {
         if (((minCost == undefined) || (minCost != undefined && parseInt(category.cost) >= minCost)) &&
             ((maxCost == undefined) || (maxCost != undefined && parseInt(category.cost) <= maxCost))) {
 
-                if(location == 'https://germoschetti.github.io/repo-github/products.html'){
-                    let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + category.name);
-               
-            content += `
-        <a href="${url}" class="list-group-item list-group-item-action " >
+            if (location == 'https://germoschetti.github.io/repo-github/products.html') {
+                let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + category.name);
+
+                content += `
+        <a href="${url}" class="list-group-item list-group-item-action ">
         <div class="row">
         <div class="col-3">
             <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
@@ -65,10 +65,10 @@ function showProducts() {
     </div>
     </a>
         `
-            document.getElementById("products").innerHTML = content
-                }else{
-                    let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + category.name);
-                    content += `
+                document.getElementById("products").innerHTML = content
+            } else {
+                let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + category.name);
+                content += `
                     <a href="${url}" class="list-group-item list-group-item-action " >
                     <div class="row">
                     <div class="col-3">
@@ -85,8 +85,8 @@ function showProducts() {
                 </div>
                 </a>
                     `
-                    document.getElementById("products").innerHTML = content
-                }
+                document.getElementById("products").innerHTML = content
+            }
         }
 
 
@@ -182,9 +182,9 @@ function filtrar() {
     for (producto of datos) {
         let nombre = producto.name.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
-            if(location == 'https://germoschetti.github.io/repo-github/products.html'){
-            let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
-            contenido += `
+            if (location == 'https://germoschetti.github.io/repo-github/products.html') {
+                let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
+                contenido += `
     <a href="${url}"  class="list-group-item list-group-item-action">
     <div class="row">
     <div class="col-3">
@@ -201,11 +201,11 @@ function filtrar() {
     </div>
     </a>
     `
-    document.getElementById("products").innerHTML = contenido
+                document.getElementById("products").innerHTML = contenido
 
-}else{
-    let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
-    contenido += `
+            } else {
+                let url = new URL("file:///D:/Users/Germ%C3%A1n/Desktop/German/Programacion/Sitios%20Web/OBLIGATORIO/repositorio/repo-github/product-info.html" + "?id=" + producto.name);
+                contenido += `
 <a href="${url}"  class="list-group-item list-group-item-action">
 <div class="row">
 <div class="col-3">
@@ -223,12 +223,12 @@ function filtrar() {
 </a>
 `
 
-}
+            }
 
-document.getElementById("products").innerHTML = contenido
+            document.getElementById("products").innerHTML = contenido
         }
 
-        
+
 
     }
 
