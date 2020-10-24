@@ -141,12 +141,15 @@ function volverCarrito() {
     $('#cart').show();
 }
 function navegation() {
-
+    let cart = document.getElementById('subtotalUYU').innerHTML;
+    if(cart == '0'){
+        alert("No hay productos en su carrito")
+    }else{
     $('#cart').hide();
     $('#envioForm').show();
     document.getElementById('nav1').className = ''
     document.getElementById('nav2').className = 'mx-5 checked'
-
+}
 }
 
 function volverEnvio() {
