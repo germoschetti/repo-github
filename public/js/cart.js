@@ -38,7 +38,7 @@ function cart() {
     }
 
     document.getElementById('cart').innerHTML += cartContenido;
-    document.getElementById('cart').innerHTML += `<button class="btn btn-primary my-2" type='submite' onclick="navegation() "> Confirmar Compra </button>`;
+    document.getElementById('cart').innerHTML += ` <div class=" row justify-content-end"> <button class="btn btn-primary my-2" type='submite' onclick="navegation() "> Confirmar Compra </button> </div>`;
 
     pintarResultado(array);
 }
