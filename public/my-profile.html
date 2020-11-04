@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <script src="https://apis.google.com/js/platform.js?onload=onload" defer></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="426818316533-1bklqstn7q6o78ra2nve36tq2vf7jn9e.apps.googleusercontent.com">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark align-centre row efecto">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <div class="dropdown  d-none d-md-inline-block">
+        <button class="btn btn-secondary dropdown-toggle usuario bg-dark" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="cart.html">Ver carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="login.html" onclick="signOut()">Salir</a>
+        </div>
+      </div>
+      <!--Menu desplegable en movil-->
+      <div class="dropdown d-md-none row justify-content-between ml-2">
+        <button class="btn btn-secondary dropdown-toggle  bg-dark" type="button" id="dropdownSm" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Menú
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="index.html">Inicio</a>
+          <a class="dropdown-item" href="categories.html">Categorías</a>
+          <a class="dropdown-item" href="products.html">Productos</a>
+          <a class="dropdown-item" href="sell.html">Vender</a>
+          <a class="dropdown-item" href="cart.html">Ver carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="login.html" onclick="signOut()">Salir</a>
+        </div>
+      </div>
+  </nav>
+
+  <div id="contenidoP">
+  </div>
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Información personal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label for="nombre" class="col-5">Nombre: </label>
+          <input type="text" id="nombre" > <br>
+
+          <label for="apellido" class="col-5">Apellido: </label>
+          <input type="text" id="apellido"><br>
+
+          <label for="edad" class="col-5">Edad: </label>
+          <input type="number" id="edad"><br>
+
+          <label for="sexo" class="col-5">Sexo:</label>
+          <select name="sexo" id="sexo">
+            <option id='sex' value=""  >Seleccionar</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+          </select><br>
+
+          <label for="cel" class="col-5">Celular</label>
+          <input type="number" id="cel"><br>
+
+          <label for="nombre" class="col-5">email: </label>
+          <input type="email" id="email"><br>
+
+        </div>
+        <div class="modal-footer">
+         
+          <div id="infoErr" > </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="editar()">Save changes</button>
+        
+        </div>
+      </div>
+    </div>
+
+   
+
+    </div>
+  
+
+
+  <!-- Modal Img -->
+  <div class="modal fade" id="modalImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edita foto de perfil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body " >
+          <div class="row">
+            <div class="col-md-12 order-md-1 mt-5">
+                <div class="needsclick dz-clickable" id="file-upload">
+                  <div class="dz-message needsclick">
+                    <input type="file" id="files" name="files[]" multiple /><br>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <output id="list"></output>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="guardar()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <script>
+    function signOut() {
+      localStorage.clear()
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        window.location.href = 'login.html'
+        console.log('User signed out.');
+
+      });
+    }
+
+    function onload() {
+      gapi.load('auth2', function () {
+        gapi.auth2.init()
+      })
+    }
+  
+  </script>
+    <!--Calendar-->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+  <script src="js/login.js"></script>
+
+
+</body>
+
+</html>
