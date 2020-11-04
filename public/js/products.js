@@ -65,7 +65,7 @@ function showProducts() {
     
                 }
 
-           else if (location == 'https://germoschetti.github.io/repo-github/products.html') {
+           else if (location == 'https://germoschetti.github.io/repo-github/public/products.html') {
                 let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + category.name);
 
                 content += `
@@ -214,7 +214,7 @@ function filtrar() {
 
             }
           else  if (location == 'https://germoschetti.github.io/repo-github/products.html') {
-                let url = new URL("https://germoschetti.github.io/repo-github/product-info.html" + "?id=" + producto.name);
+                let url = new URL("https://germoschetti.github.io/repo-github/public/product-info.html" + "?id=" + producto.name);
                 contenido += `
                 <div class="col-md-4">
                 <div class="py-3">
