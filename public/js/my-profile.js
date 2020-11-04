@@ -142,7 +142,7 @@ function imprimir(obj) {
 
     <div class="col-9 ml-auto row justify-content-center editProfile">
     <div class="col-lg-6 col-md-6 col-sm-12" > <p>Usuario</p> </div>
-    <div class="col-lg-6 col-md-6 col-sm-12"><p>${localStorage.getItem('Usuario')}</p></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><p>${localStorage.getItem('Usuario')|| localStorage.getItem('google')}</p></div>
     </div>
 
     <hr>
